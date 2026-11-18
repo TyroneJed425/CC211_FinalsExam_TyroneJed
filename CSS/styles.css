@@ -1,0 +1,479 @@
+
+/* =================================
+   1. GLOBAL DESIGN SYSTEM
+================================= */
+
+:root {
+  --bg-dark: #260d36;
+  --bg-wine: #74183f;
+  --pink: #e52baf;
+  --pink-light: #ff8ce0;
+  --white: #f4ddf2;
+  --card: rgba(255,255,255,0.07);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding-top: 76px;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+
+  background-color: var(--bg-wine);
+  background-image:
+    linear-gradient(30deg, transparent 48%, rgba(255,255,255,.055) 49%, rgba(255,255,255,.055) 51%, transparent 52%),
+    linear-gradient(150deg, transparent 48%, rgba(255,255,255,.055) 49%, rgba(255,255,255,.055) 51%, transparent 52%);
+
+  background-size: 120px 210px;
+}
+
+h1, h2, h3, .navbar-brand {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =================================
+   2. NAVIGATION
+================================= */
+
+.navbar {
+  background: rgba(38,13,54,.96);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(12px);
+}
+
+
+/* Vaporwave Portfolio Logo */
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: .95rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+
+    filter: drop-shadow(0 0 5px rgba(229, 43, 175, .65));
+
+    transition: transform .3s ease,
+                filter .3s ease;
+}
+
+.brand-logo:hover {
+    transform: rotate(-8deg) scale(1.08);
+    filter: drop-shadow(0 0 10px #ff36c9);
+}
+
+/* Smaller logo on mobile */
+
+@media (max-width: 480px) {
+    .brand-logo {
+        width: 38px;
+        height: 38px;
+    }
+
+    .navbar-brand {
+        font-size: .8rem;
+    }
+}
+
+
+/* =================================
+   3. HOMEPAGE HERO
+================================= */
+
+.hero {
+  min-height: 570px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(ellipse at 70% 40%, rgba(229,43,175,.28), transparent 40%),
+    linear-gradient(120deg, #260d36, #54123f, #260d36);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .3;
+  background:
+    repeating-radial-gradient(
+      circle at 75% 40%,
+      transparent 0 12px,
+      rgba(255,255,255,.25) 13px 14px
+    );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.hero h1 {
+  font-size: clamp(2.7rem, 6vw, 5rem);
+  line-height: 1.1;
+  margin: 18px 0;
+}
+
+.hero h1 span {
+  color: var(--pink-light);
+}
+
+.hero p {
+  max-width: 580px;
+  line-height: 1.8;
+  color: #e8c9e2;
+}
+
+/* =================================
+   4. BUTTONS
+================================= */
+
+.btn-pink {
+  color: white;
+  background: var(--pink);
+  border: 1px solid var(--pink);
+  padding: 11px 22px;
+  font-weight: 700;
+  transition: .25s;
+}
+
+.btn-pink:hover {
+  color: white;
+  background: #b91688;
+  border-color: #b91688;
+  transform: translateY(-2px);
+}
+
+.btn-outline-light {
+  padding: 11px 22px;
+}
+
+/* =================================
+   5. SHARED SECTIONS
+================================= */
+
+.section-padding {
+  padding-top: 85px;
+  padding-bottom: 85px;
+}
+
+.featured-section {
+  background: rgba(38,13,54,.5);
+}
+
+.section-heading {
+  margin-bottom: 35px;
+}
+
+.section-heading h1,
+.section-heading h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-top: 10px;
+}
+
+.section-heading p {
+  color: #e5c9df;
+}
+
+.eyebrow,
+.project-type {
+  color: var(--pink-light);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* =================================
+   6. FEATURE CARDS
+================================= */
+
+.feature-card {
+  height: 100%;
+  padding: 30px;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  transition: .3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--pink);
+  background: rgba(229,43,175,.12);
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  margin: 18px 0 10px;
+}
+
+.feature-card p {
+  color: #e5c9df;
+  line-height: 1.7;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--pink-light);
+}
+
+/* =================================
+   7. PROJECT CARDS
+================================= */
+
+.project-card {
+  overflow: hidden;
+  background: rgba(38,13,54,.9);
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 10px;
+  transition: .3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--pink);
+}
+
+.project-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #321039;
+}
+
+.project-info {
+  padding: 22px;
+}
+
+.project-info h3 {
+  margin: 12px 0;
+}
+
+.project-info p {
+  color: #e5c9df;
+}
+
+.text-link {
+  color: var(--pink-light);
+  font-weight: 700;
+}
+
+/* =================================
+   8. PROJECT FILTERS
+================================= */
+
+.filter-btn {
+  padding: 9px 18px;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 30px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--pink);
+  border-color: var(--pink);
+}
+
+.project-item {
+  transition: opacity .25s, transform .25s;
+}
+
+.project-item.hidden {
+  display: none;
+}
+
+/* =================================
+   9. MODAL
+================================= */
+
+.project-modal {
+  color: white;
+  background: var(--bg-dark);
+  border: 1px solid var(--pink);
+}
+
+.project-modal .modal-header {
+  border-bottom-color: rgba(255,255,255,.15);
+}
+
+/* =================================
+   10. ABOUT PAGE
+================================= */
+
+.profile-photo {
+  width: min(250px, 100%);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid var(--pink);
+}
+
+.skill-card {
+  padding: 22px 12px;
+  text-align: center;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,.15);
+  background: var(--card);
+  border-radius: 8px;
+  transition: .3s;
+}
+
+.skill-card:hover {
+  border-color: var(--pink);
+  color: var(--pink-light);
+}
+
+.form-control {
+  color: white;
+  background: rgba(38,13,54,.7);
+  border: 1px solid rgba(255,255,255,.25);
+  padding: 12px;
+}
+
+.form-control:focus {
+  color: white;
+  background: rgba(38,13,54,.9);
+  border-color: var(--pink);
+  box-shadow: 0 0 0 .2rem rgba(229,43,175,.2);
+}
+
+.form-control::placeholder {
+  color: #d0b2ca;
+}
+
+.form-label {
+  font-weight: 600;
+}
+
+.social-list {
+  display: grid;
+  gap: 14px;
+}
+
+.social-list a {
+  display: block;
+  padding: 15px 18px;
+  background: var(--card);
+  border-left: 3px solid var(--pink);
+  transition: .2s;
+}
+
+.social-list a:hover {
+  background: rgba(229,43,175,.2);
+  padding-left: 25px;
+}
+
+/* =================================
+   11. FOOTER
+================================= */
+
+.site-footer {
+  padding: 28px 0;
+  text-align: center;
+  background: #1a0826;
+  border-top: 1px solid rgba(255,255,255,.1);
+  color: #d7b8d0;
+}
+
+.site-footer p {
+  margin: 4px;
+  font-size: .85rem;
+}
+
+/* =================================
+   12. RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 490px;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .navbar-nav {
+    padding: 12px 0;
+  }
+
+  .nav-link {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero-content {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .feature-card {
+    padding: 22px;
+  }
+}
+
+
+/* Profile image */
+.profile-photo {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #e52baf;
+}
+
+/* Game project images */
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Responsive images */
+img {
+    max-width: 100%;
+}

@@ -1,0 +1,109 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+  <defs>
+    <linearGradient id="sunset" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff08a"></stop>
+      <stop offset="40%" stop-color="#ff9b83"></stop>
+      <stop offset="75%" stop-color="#ff36b5"></stop>
+      <stop offset="100%" stop-color="#8d20c9"></stop>
+    </linearGradient>
+
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff63d0"></stop>
+      <stop offset="100%" stop-color="#47106e"></stop>
+    </linearGradient>
+
+    <clipPath id="sunClip">
+      <circle cx="256" cy="245" r="190"></circle>
+    </clipPath>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blur"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Transparent background -->
+
+  <!-- Neon outer ring -->
+  <circle cx="256" cy="256" r="237" fill="#24072f" stroke="#ff25c9" stroke-width="13" filter="url(#glow)"></circle>
+
+  <!-- Sunset -->
+  <g clip-path="url(#sunClip)">
+    <circle cx="256" cy="245" r="190" fill="url(#sunset)"></circle>
+
+    <!-- Horizontal vaporwave stripes -->
+    <g fill="#30083e">
+      <rect x="55" y="285" width="402" height="13"></rect>
+      <rect x="55" y="317" width="402" height="13"></rect>
+      <rect x="55" y="349" width="402" height="17"></rect>
+      <rect x="55" y="390" width="402" height="19"></rect>
+    </g>
+
+    <!-- Horizon and ocean -->
+    <rect x="55" y="409" width="402" height="110" fill="url(#water)"></rect>
+
+    <g stroke="#ff70dc" stroke-width="6" opacity=".9">
+      <path d="M110 430 H402"></path>
+      <path d="M145 452 H370"></path>
+      <path d="M190 475 H330"></path>
+      <path d="M220 494 H300"></path>
+    </g>
+
+    <!-- Sun reflection -->
+    <path d="M245 411 L267 411 L310 512 H202 Z" fill="#ff83d8" opacity=".3"></path>
+  </g>
+
+  <!-- Coconut tree silhouette on right -->
+  <g fill="#21052d" stroke="#21052d" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Trunk -->
+    <path d="M354 466
+             C360 403 359 342 344 274
+             C337 244 319 211 296 188
+             L309 181
+             C346 216 367 263 371 311
+             C379 366 378 416 379 466 Z"></path>
+
+    <!-- Palm leaves -->
+    <path d="M304 192
+             C270 165 235 161 203 177
+             C239 172 264 188 289 207 Z"></path>
+
+    <path d="M306 190
+             C273 143 248 128 218 133
+             C254 147 274 170 296 204 Z"></path>
+
+    <path d="M310 188
+             C291 140 294 111 314 84
+             C306 125 316 155 323 192 Z"></path>
+
+    <path d="M313 190
+             C327 139 353 117 388 109
+             C354 130 337 159 328 199 Z"></path>
+
+    <path d="M316 194
+             C360 163 396 165 428 183
+             C388 177 358 193 329 210 Z"></path>
+
+    <path d="M318 198
+             C366 195 404 215 427 247
+             C393 219 357 213 325 215 Z"></path>
+
+    <path d="M301 197
+             C272 205 247 229 234 258
+             C264 231 287 220 309 212 Z"></path>
+
+    <!-- Coconut cluster -->
+    <circle cx="306" cy="195" r="10"></circle>
+    <circle cx="319" cy="192" r="10"></circle>
+    <circle cx="313" cy="205" r="10"></circle>
+  </g>
+
+  <!-- Small neon details -->
+  <circle cx="256" cy="256" r="237" fill="none" stroke="#ff8de9" stroke-width="3"></circle>
+</svg>
